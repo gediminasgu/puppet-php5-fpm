@@ -35,4 +35,8 @@ class php5-fpm {
     hostwide => 'yes',
   }
 
+  puppi::check { 'PHP5-port-Check':
+    command => "check_tcp -p 9000 -r critical",
+    hostwide => 'yes',
+  }
 }
