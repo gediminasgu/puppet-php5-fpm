@@ -29,4 +29,10 @@ class php5-fpm {
         content => template('php5-fpm/php-fpm.conf.erb'),
         require => Package['php5-fpm'],
     }
+	
+  puppi::check { 'PHP5-Proc-Check':
+    command => "check_procs -c 5:5 -a php-fpm",
+    hostwide => 'yes',
+  }
+
 }
